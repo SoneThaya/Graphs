@@ -191,16 +191,16 @@ class Graph:
         # adds to visited
         visited.add(starting_vertex)
         # makes a copy of the path
-        new_path = path + [starting_vertex]
+        path = path + [starting_vertex]
         # check if it has reached its destination
         if starting_vertex == destination_vertex:
-            return new_path
+            return path
         # go through all neighbors
         for neighbor in self.vertices[starting_vertex]:
             # if not visited
             if neighbor not in visited:
                 # neighbor becomes starting vert, recursive call
-                neighbor_path = self.dfs_recursive(neighbor, destination_vertex, visited, new_path)
+                neighbor_path = self.dfs_recursive(neighbor, destination_vertex, visited, path)
                 # returns if there is a neighbor_path
                 if neighbor_path is not None:
                     return neighbor_path
